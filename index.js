@@ -5,6 +5,7 @@ exports.Histogram = Metrics.Histogram;
 exports.Meter = Metrics.Meter;
 exports.Counter = Metrics.Counter;
 exports.Timer = Metrics.Timer;
+exports.Moments = Metrics.Moments;
 
 exports.Server = Reporting.Server;
 exports.Report = Reporting.Report;

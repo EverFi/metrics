@@ -1,3 +1,31 @@
+Metrics (Forked)
+=================
+This version of metrics is the same as the original application with one additional instrument. The 'moments' metric type associates arbitrary keys with dates in the context of a unique entity has done something of significance and you'd like to record the moment that happened.
+
+```javascript
+var specialMoments = new metrics.Moments( 'users' ) // takes optional subject label
+metricsReport.addMetric("org.users.specialMoment", specialMoments);
+
+// user123 reaches some milestone
+specialMoments.mark( user.id )
+
+// user123 does the same thing later on
+specialMoments.mark( user.id )
+
+// the report looks something like
+{
+  "org.users.specialMoments": {
+    "type": "moments",
+    "count": 2,
+    "users": { // our label from earlier. in the absence of a label this is "subjects"
+      "user123": [specialDateString, specialDateString]
+    }
+  }
+}
+```
+
+
+
 Metrics
 =======
 
